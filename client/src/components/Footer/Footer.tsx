@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube, FaInstagram } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi'; // For email icon
 import { FaPhoneAlt } from 'react-icons/fa'; // For phone icon
 import { IoLocationSharp } from 'react-icons/io5'; // For location icon
@@ -84,18 +84,13 @@ const Footer: React.FC = () => {
               Premier choice and trusted investors have been relying on Groundlink for dependable solutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+              <a href="https://www.facebook.com/share/1LLhEwXUVz/" className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
                 <FaFacebookF className="w-4 h-4 text-[#3b5998]" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-[#FF6600] flex items-center justify-center">
-                <FaTwitter className="w-4 h-4 text-white" />
+              <a href="https://www.instagram.com/unitedbuildpro" className="w-8 h-8 rounded-full bg-[#FF6600] flex items-center justify-center">
+                <FaInstagram className="w-4 h-4 text-white" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-[#0077B5] flex items-center justify-center">
-                <FaLinkedinIn className="w-4 h-4 text-white" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-[#FF0000] flex items-center justify-center">
-                <FaYoutube className="w-4 h-4 text-white" />
-              </a>
+              
             </div>
           </div>
 

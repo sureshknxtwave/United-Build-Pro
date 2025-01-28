@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaUser, FaEnvelope, FaComment } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import Modal from '../Modal/Modal.tsx'
 interface Block {
   id: number;
   name: string;
@@ -14,6 +15,21 @@ const BlocksListing: React.FC = () => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+      const handleJoinUsClick = () => {
+        setIsModalOpen(true); // Open modal when button is clicked
+      };
+    
+      const handleCloseModal = () => {
+        setIsModalOpen(false); // Close modal
+      };
+    
+      const handleSubmitModalForm = (formData: { name: string; email: string; phone: string; subject: string; message: string }) => {
+        console.log('Form submitted with data:', formData);
+        // You can replace this with logic for sending data to an API
+        handleCloseModal(); // Close the modal after submission
+      };
+    
 
   const blocks: Block[] = [
     {
@@ -149,7 +165,7 @@ const BlocksListing: React.FC = () => {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      navigate(`/blocks/${block.id}/enquiry`);
+                      navigate(`/contact`);
                     }}
                     className="text-orange-500 text-sm ff font-semibold hover:text-orange-600"
                   >
@@ -296,9 +312,14 @@ const BlocksListing: React.FC = () => {
             </div>
             <p className="text-center mt-2 font-semibold">Bharathi 43 Grade</p>
             <div className="flex justify-center">
-              <button className="p-3 bg-orange-500 text-white mt-4 hover:bg-orange-600 transition-colors duration-300">
+              <button onClick={handleJoinUsClick} className="p-3 bg-orange-500 text-white mt-4 hover:bg-orange-600 transition-colors duration-300">
                 Enquire Now!
               </button>
+              <Modal
+                  isOpen={isModalOpen}
+                  handleClose={handleCloseModal}
+                  handleSubmit={handleSubmitModalForm}
+                />
             </div>
           </motion.div>
         </div>

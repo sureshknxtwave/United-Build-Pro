@@ -1,7 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Modal from '../Modal/Modal.tsx'
+
 
 const AboutUs: React.FC = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const handleJoinUsClick = () => {
+      setIsModalOpen(true); // Open modal when button is clicked
+    };
+  
+    const handleCloseModal = () => {
+      setIsModalOpen(false); // Close modal
+    };
+  
+    const handleSubmit = (formData: { name: string; email: string; phone: string; subject: string; message: string }) => {
+      console.log('Form submitted with data:', formData);
+      // You can replace this with logic for sending data to an API
+      handleCloseModal(); // Close the modal after submission
+    };
+  
   // Colors object
   const colors = {
     primary: '#1B2D3C',    // Dark blue
@@ -39,6 +57,7 @@ const AboutUs: React.FC = () => {
 
     return (
       <button 
+      onClick={handleJoinUsClick}
         className="px-8 py-3 ff font-semibold  transition-all duration-300 mt-8"
         style={{ 
           backgroundColor: isHovered ? '#2a4459' : colors.primary,
@@ -130,7 +149,13 @@ const AboutUs: React.FC = () => {
                 time making life at ease spaces to form spaces system.
               </p>
 
-              <Button>Know More</Button>
+              <Button >Know More</Button>
+
+              <Modal
+                  isOpen={isModalOpen}
+                  handleClose={handleCloseModal}
+                  handleSubmit={handleSubmit}
+                />
             </div>
           </motion.div>
         </div>

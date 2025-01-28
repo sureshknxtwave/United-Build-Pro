@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion for sliding transitions
 import Navbar from "../Navbar/Navbar.tsx";
+import Modal from '../Modal/Modal.tsx'
 
 interface CarouselSlide {
   id: number;
@@ -32,6 +33,20 @@ const carouselData: CarouselSlide[] = [
 
 const Banner: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const handleJoinUsClick = () => {
+    setIsModalOpen(true); // Open modal when button is clicked
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Close modal
+  };
+
+  const handleSubmit = (formData: { name: string; email: string; phone: string; subject: string; message: string }) => {
+    console.log('Form submitted with data:', formData);
+    // You can replace this with logic for sending data to an API
+    handleCloseModal(); // Close the modal after submission
+  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % carouselData.length);
@@ -96,9 +111,14 @@ const Banner: React.FC = () => {
               <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">
                 {carouselData[currentSlide].description}
               </p>
-              <button className="bg-[#1B2D3C] text-white px-6 ff font-semibold py-3 md:px-8 md:py-4  hover:bg-[#2a4459] transition duration-300">
+              <button onClick={handleJoinUsClick} className="bg-[#1B2D3C] text-white px-6 ff font-semibold py-3 md:px-8 md:py-4  hover:bg-[#2a4459] transition duration-300">
                 Contact us
               </button>
+              <Modal
+                  isOpen={isModalOpen}
+                  handleClose={handleCloseModal}
+                  handleSubmit={handleSubmit}
+                />
             </motion.div>
 
             {/* Right Image */}
