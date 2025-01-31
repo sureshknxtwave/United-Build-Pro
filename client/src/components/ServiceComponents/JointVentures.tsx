@@ -144,7 +144,7 @@ const JointVentures: React.FC = () => {
             variants={itemVariants}
           >
             <motion.p 
-              className="text-gray-400  leading-relaxed"
+              className="ext-gray-600 text-[20px]  leading-relaxed"
               variants={itemVariants}
             >
               We partner with landowners and investors to develop high-value properties 

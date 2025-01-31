@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion for sliding transitions
 import Navbar from "../Navbar/Navbar.tsx";
-import Modal from '../Modal/Modal.tsx'
+import Modal from '../Modal/Modal.tsx';
+import {Link} from 'react-router-dom'
 
 interface CarouselSlide {
   id: number;
@@ -111,15 +112,12 @@ const Banner: React.FC = () => {
               <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">
                 {carouselData[currentSlide].description}
               </p>
-              <button onClick={handleJoinUsClick} className="bg-[#1B2D3C] text-white px-6 ff font-semibold py-3 md:px-8 md:py-4  hover:bg-[#2a4459] transition duration-300">
+              <Link to="/contact"onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <button   className="bg-[#1B2D3C] text-white px-6 ff font-semibold py-3 md:px-8 md:py-4  hover:bg-[#2a4459] transition duration-300">
                 Contact us
               </button>
-              <Modal
-                  isOpen={isModalOpen}
-                  handleClose={handleCloseModal}
-                  handleSubmit={handleSubmit}
-                />
-            </motion.div>
+              </Link>
+              </motion.div> 
 
             {/* Right Image */}
             <motion.div

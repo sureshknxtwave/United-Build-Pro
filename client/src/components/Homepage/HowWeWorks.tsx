@@ -100,13 +100,13 @@ const HowWeWork: React.FC = () => {
 
       {/* Content */}
       <motion.div 
-        className="relative z-10 text-sm"
+        className="relative z-10 text-sm "
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         <motion.div 
-          className="max-w-7xl mx-auto bg-white p-10 my-[30px]"
+          className="max-w-7xl mx-auto shadow-lg bg-white p-10 mt-[30px]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 30 }}
           transition={{ duration: 0.8 }}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Modal from '../Modal/Modal.tsx'
+import {Link} from 'react-router-dom'
 
 
 const AboutUs: React.FC = () => {
@@ -76,7 +77,7 @@ const AboutUs: React.FC = () => {
   };
 
   return (
-    <section className="py-16 px-4 md:px-8 lg:px-0 my-[50px]" style={{ backgroundColor: colors.white }}>
+    <section className="py-16 px-4 md:px-8 lg:px-0 " style={{ backgroundColor: colors.white }}>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image Container with Decorative Elements */}
@@ -148,14 +149,12 @@ const AboutUs: React.FC = () => {
                 exceed them, offering a seamless integration of style and functionality while at the same 
                 time making life at ease spaces to form spaces system.
               </p>
+            <Link to='/about' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <Button >Know More</Button>
+            </Link>
+             
 
-              <Button >Know More</Button>
-
-              <Modal
-                  isOpen={isModalOpen}
-                  handleClose={handleCloseModal}
-                  handleSubmit={handleSubmit}
-                />
+             
             </div>
           </motion.div>
         </div>

@@ -66,10 +66,10 @@ const Footer: React.FC = () => {
       <div className={`bg-[#1B2D3C] text-white p-[100px] mx-auto  transition-all duration-1000 ${
         isFooterInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
       }`}>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 ">
           {/* Logo and Social Section */}
           <div
-            className={`space-y-6 transition-all duration-1000 ${
+            className={`space-y-6 my-6 md:my-0 md:px-20 transition-all duration-1000 ${
               isFooterInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
 
           {/* Useful Links */}
           <div
-            className={`transition-all pt-5 duration-1000 ${
+            className={`transition-all md:pl-28  pt-5 duration-1000 ${
               isFooterInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
@@ -121,35 +121,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Products */}
-          <div
-            className={`transition-all pt-5 duration-1000 ${
-              isFooterInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <h3 className="text-lg font-semibold mb-4">Products</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link onClick={scrollToTop} to="/blocks" className="text-gray-300 hover:text-white">
-                  Listings
-                </Link>
-              </li>
-              <li>
-                <Link onClick={scrollToTop} to="/services" className="text-gray-300 hover:text-white">
-                  Details
-                </Link>
-              </li>
-              <li>
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="text-gray-300 hover:text-white"
-                >
-                  Enquiry Form
-                </button>
-              </li>
-            </ul>
-          </div>
-
+         
           <div
   className={`transition-all pt-5 duration-1000 ${
     isFooterInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -177,78 +149,22 @@ const Footer: React.FC = () => {
       </p>
     </li>
   </ul>
-</div>
+          </div>
         </div>
 
         {/* Footer Bottom */}
         
       </div>
       <div className="bg-[#44647f] w-full h-[50px] flex items-center justify-center border-t border-gray-700">
-  <div className="max-w-7xl w-full mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+  <div className="max-w-7xl w-full mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0">
     <p className="text-sm text-white text-center md:text-left">
       © United build pro {currentYear}. All rights reserved.
     </p>
-    <div className="flex items-center space-x-4">
-      <Link to="/terms" className="text-sm text-white hover:text-white">
-        Terms of Use
-      </Link>
-      <span className="text-gray-400">|</span>
-      <Link to="/privacy" className="text-sm text-white hover:text-white">
-        Privacy Policy
-      </Link>
-    </div>
+    
   </div>
 </div>
 
-      {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 w-full max-w-lg shadow-lg relative">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            >
-              ✕
-            </button>
-            <h2 className="text-2xl font-bold text-[#1B2D3C] mb-6">Request a Consultation</h2>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                className="px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-200 outline-none"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={formData.email}
-                onChange={handleChange}
-                className="px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-200 outline-none"
-                required
-              />
-              <textarea
-                name="projectDetails"
-                placeholder="Project Details"
-                value={formData.projectDetails}
-                onChange={handleChange}
-                className="px-4 py-2 border rounded-md focus:ring-2 focus:ring-orange-200 outline-none"
-                rows={4}
-                required
-              ></textarea>
-              <button
-                type="submit"
-                className="bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600 transition-colors duration-300"
-              >
-                Submit Enquiry
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
+      
     </footer>
   );
 };

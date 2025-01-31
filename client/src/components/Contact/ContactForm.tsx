@@ -128,21 +128,21 @@ const ContactForm: React.FC = () => {
                       <FaPhone className="w-6 h-6 text-white" />
                     ),
                     label: 'Phone Number:',
-                    value: 'Head office: (210) 123 451',
+                    value: ' +91 9731125090, 9731125090',
                   },
                   {
                     icon: (
                       <FaEnvelope className="w-6 h-6 text-white" />
                     ),
                     label: 'Mail Address:',
-                    value: 'websitepreview123@gmail.com',
+                    value: 'unitedbuildpro@gmail.com',
                   },
                   {
                     icon: (
                       <FaUser className="w-6 h-6 text-white" />
                     ),
                     label: 'Office Address:',
-                    value: '254 Lillian Blvd, Holbrook',
+                    value: ' #63/A, E Block, 2nd Stage, Dr Rajkumar Road, Subramanaya Nagar Bangalore-560010',
                   },
                 ].map((item, index) => (
                   <motion.div

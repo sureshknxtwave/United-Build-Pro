@@ -116,7 +116,7 @@ const ClientsFeedback: React.FC = () => {
   };
 
   return (
-    <section className="py-16 my-[100px] px-4 md:px-8 lg:px-0 relative overflow-hidden">
+    <section className="py-4  px-4 md:px-8 lg:px-0 relative overflow-hidden">
       <motion.div 
         className="max-w-7xl mx-auto relative"
         initial="hidden"

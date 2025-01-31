@@ -1,7 +1,7 @@
 // src/pages/Blocks/Blocks.tsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import ConditionalTopBar from '../../components/Homepage/ConditionalTopBar.tsx';
+import ConditionalTopBar from '../../components/Homepage/Header.tsx';
 import Navbar from '../../components/Navbar/Navbar.tsx';
 import Footer from '../../components/Footer/Footer.tsx';
 import BlocksListing from '../../components/Blocks/BlocksListing.tsx';

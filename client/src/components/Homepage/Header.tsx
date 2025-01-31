@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom'
 import { MdLocationOn, MdEmail } from 'react-icons/md';
-import { FaFacebookF, FaTwitter, FaVimeoV } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaTwitter, FaVimeoV } from 'react-icons/fa';
 
 // Custom hook to observe when an element enters the viewport
 const useInView = (threshold: number = 0.1) => {
@@ -75,15 +75,13 @@ const TopContactBar: React.FC = () => {
             <div className="flex items-center space-x-4">
             {/* Social Media Links */}
             <div className="flex items-center space-x-2">
-              <a href="#" className="hover:text-gray-300">
-                <FaFacebookF className="text-white w-4 h-4" />
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                <FaTwitter className="text-white w-4 h-4" />
-              </a>
-              <a href="#" className="hover:text-gray-300">
-                <FaVimeoV className="text-white w-4 h-4" />
-              </a>
+             <a href="https://www.facebook.com/share/1LLhEwXUVz/" className="hover:text-gray-300">
+                             <FaFacebookF className="text-white w-4 h-4" />
+                           </a>
+                           <a href="https://www.instagram.com/unitedbuildpro" className="hover:text-gray-300">
+                             <FaInstagram className="text-white w-4 h-4" />
+                           </a>
+             
             </div>
            
           </div>

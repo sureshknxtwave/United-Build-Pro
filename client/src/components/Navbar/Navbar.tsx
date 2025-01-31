@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
 
                   {/* Dropdown Menu */}
                   {item.subItems && (
-                    <div className="hidden group-hover:block absolute z-50 left-0 mt-1 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div className="hidden group-hover:block absolute z-50 left-0 mt-0 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                       <div className="py-1">
                         {item.subItems.map((subItem) => (
                           <Link

@@ -1,7 +1,7 @@
 // src/App.tsx
 import React from 'react';
 import Banner from '../../components/Homepage/BannerSection.tsx';
-import ConditionalTopBar from '../../components/Homepage/ConditionalTopBar.tsx';
+import Header from '../../components/Homepage/Header.tsx';
 import AboutUs from '../../components/Homepage/About.tsx';
 import Services from '../../components/Homepage/Services.tsx';
 import RecentProjects from '../../components/Homepage/Projects.tsx';
@@ -12,7 +12,7 @@ import Footer from '../../components/Footer/Footer.tsx';
 const Homepage: React.FC = () => {
   return (
     <>
-    <ConditionalTopBar/>
+    <Header/>
     <Banner />
     <AboutUs/>
     <Services/>

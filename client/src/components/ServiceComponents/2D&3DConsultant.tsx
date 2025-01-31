@@ -84,7 +84,7 @@ const ArchitecturalServices: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="text-gray-600 text-lg leading-relaxed"
+              className="ext-gray-600 text-[20px]  leading-relaxed"
             >
               Our architectural consulting services provide detailed 2D drawings and stunning 3D
               visualizations, helping you see the final product before construction begins.

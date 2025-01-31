@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import {Link} from 'react-router-dom'
 
 interface ServiceCard {
   id: number;
@@ -12,14 +13,17 @@ interface ServiceCard {
 const services: ServiceCard[] = [
   {
     id: 1,
+    path:'building-materials',
     img: require('../../utils/HomePage/ser1.png'),
     hoverImg: require('../../utils/HomePage/ser7.png'),
     title: 'Building Materials',
+    
     description:
       'United Builders Pvt Ltd is a one-stop solution that offers a hassle-free way to source the quality building supplies that the project needs.',
   },
   {
     id: 2,
+    path:'joint-ventures',
     img: require('../../utils/HomePage/ser2.png'),
     hoverImg: require('../../utils/HomePage/ser8.png'),
     title: 'Joint Ventures',
@@ -28,6 +32,7 @@ const services: ServiceCard[] = [
   },
   {
     id: 3,
+    path:'rera-consultants',
     img: require('../../utils/HomePage/ser3.png'),
     hoverImg: require('../../utils/HomePage/ser9.png'),
     title: 'RERA Consultants',
@@ -36,6 +41,7 @@ const services: ServiceCard[] = [
   },
   {
     id: 4,
+    path:'2d-3d-consultant',
     img: require('../../utils/HomePage/ser4.png'),
     hoverImg: require('../../utils/HomePage/ser10.png'),
     title: '2D & 3D Consultant',
@@ -44,6 +50,7 @@ const services: ServiceCard[] = [
   },
   {
     id: 5,
+    path:'construction-interior',
     img: require('../../utils/HomePage/ser5.png'),
     hoverImg: require('../../utils/HomePage/ser11.png'),
     title: 'Construction & Interior',
@@ -52,6 +59,7 @@ const services: ServiceCard[] = [
   },
   {
     id: 6,
+    path:'land-development',
     img: require('../../utils/HomePage/ser6.png'),
     hoverImg: require('../../utils/HomePage/ser12.png'),
     title: 'Land Development',
@@ -69,7 +77,7 @@ const Services: React.FC = () => {
 
   return (
     <section
-      className="py-16 my-[100px] px-4 md:px-8 lg:px-0"
+      className="py-16  px-4 md:px-8 lg:px-0"
       style={{ backgroundColor: colors.white }}
     >
       <div className="max-w-7xl mx-auto">
@@ -134,6 +142,7 @@ const Services: React.FC = () => {
                 </motion.p>
 
                 {/* Read More Link */}
+                <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} to={`/services/${service.path}`}>
                 <div className="flex items-center">
                   <span className="transition-all font-bold duration-300 group-hover:text-white flex items-center">
                     Read More
@@ -142,6 +151,7 @@ const Services: React.FC = () => {
                     </span>
                   </span>
                 </div>
+                </Link>
               </div>
             </motion.div>
           ))}

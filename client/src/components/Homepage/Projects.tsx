@@ -88,7 +88,7 @@ const RecentProjects: React.FC = () => {
 
   return (
     <motion.section 
-      className="my-[50px] py-16 px-4 md:px-8 lg:px-0"
+      className=" py-16 px-4 md:px-8 lg:px-0"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -173,10 +173,10 @@ const RecentProjects: React.FC = () => {
           <h3 className="text-[#1B2D3C] ff text-xl font-bold mb-2">
             {project.title}
           </h3>
-          <div className="flex items-center text-orange-500">
+          {/* <div className="flex items-center text-orange-500">
             <span className="text-sm">View Projects</span>
             <span className="ml-2">→</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </motion.div>
