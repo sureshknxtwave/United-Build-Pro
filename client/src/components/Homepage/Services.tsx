@@ -77,7 +77,7 @@ const Services: React.FC = () => {
 
   return (
     <section
-      className="  px-4 md:px-8 lg:px-0"
+      className="py-10  px-4 md:px-8 lg:px-0"
       style={{ backgroundColor: colors.white }}
     >
       <div className="max-w-7xl mx-auto">

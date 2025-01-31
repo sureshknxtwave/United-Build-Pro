@@ -10,21 +10,21 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    category:"Contruction",
-    title: 'Contemporary Villas',
-    image: require("../../utils/HomePage/3.png"),
+    category:"Interior",
+    title: 'Interior Designing of 3 BHK Home',
+    image: require("../../utils/HomePage/pr1.png"),
   },
   {
     id: 2,
     category:"Contruction",
-    title: 'Empire State Building',
-    image: require("../../utils/HomePage/4.png"),
+    title: 'Construction Of Office Space',
+    image: require("../../utils/HomePage/pr2.png"),
   },
   {
     id: 3,
-    category:"Contruction",
-    title: 'Central Park Tower',
-    image: require("../../utils/HomePage/5.png"),
+    category:"Land Development",
+    title: 'Layout Construction',
+    image: require("../../utils/HomePage/pr3.png"),
   },
   
 ];
@@ -169,7 +169,7 @@ const RecentProjects: React.FC = () => {
       {/* White Card */}
       <div className="absolute left-5 right-5 bottom-0 transform translate-y-1/2">
         <div className="bg-white p-6 shadow-lg ">
-          <p className="text-gray-400 ff text-sm mb-1">{project.category}</p>
+          <p className="text-gray-600 ff text-sm mb-1">{project.category}</p>
           <h3 className="text-[#1B2D3C] ff text-xl font-bold mb-2">
             {project.title}
           </h3>

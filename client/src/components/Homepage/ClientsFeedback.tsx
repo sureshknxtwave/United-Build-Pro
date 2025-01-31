@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaUserCircle } from 'react-icons/fa';
 
 interface Feedback {
   id: number;
@@ -12,42 +13,34 @@ interface Feedback {
 const feedbacks: Feedback[] = [
   {
     id: 1,
-    content1:'precious ipsum dolor sit amet',
-    content2:' consectetur adipisicing elit, sed dos',
-    content3: 'mod tempor incididunt ut labore',
-    content4: 'et dolore magna aliqua. Ut enim ad',
-    content5: 'min veniam, quis nostrud Precious',
-    content6: 'ips um dolor sit amet, consecte',
+    content:' "Our new office building was completed, on time and within budget, with top-notch quality and professionalism. We are extremely satisfied with the result."',
+   
+
     
-    author: 'Lee Barners',
+    
+    author: 'Pallavi',
     position: 'Managing Director',
     rating: 5,
     authorImage: require('../../utils/HomePage/men.jpg'),
   },
   {
     id: 2,
-    content1:'precious ipsum dolor sit amet',
-    content2:' consectetur adipisicing elit, sed dos',
-    content3: 'mod tempor incididunt ut labore',
-    content4: 'et dolore magna aliqua. Ut enim ad',
-    content5: 'min veniam, quis nostrud Precious',
-    content6: 'ips um dolor sit amet, consecte',
+    content:'"Our 3BHK home was transformed beautifully with elegant and functional designs. United build pro exceeded our expectations with their creativity and attention to detail."',
+
+   
+
     
-    author: 'Jane Doe',
+    author: 'Ananth',
     position: 'Project Manager',
     rating: 4,
     authorImage: require('../../utils/HomePage/women.jpg'),
   },
   {
     id: 3,
-    content1:'precious ipsum dolor sit amet',
-      content2:' consectetur adipisicing elit, sed dos',
-      content3: 'mod tempor incididunt ut labore',
-      content4: 'et dolore magna aliqua. Ut enim ad',
-      content5: 'min veniam, quis nostrud Precious',
-      content6: 'ips um dolor sit amet, consecte',
+    content:'"From raw land to a fully developed commercial space, United Build Prohandled everything seamlessly. Their expertise made the entire process stress-free and highly successful."',
       
-    author: 'John Smith',
+
+    author: 'Sundar',
     position: 'CEO',
     rating: 5,
     authorImage: require('../../utils/HomePage/women2.jpeg'),
@@ -155,7 +148,7 @@ const ClientsFeedback: React.FC = () => {
           {/* Feedback Cards */}
           <div className="overflow-hidden">
             <motion.div 
-              className="flex gap-6 md:gap-8"
+              className="flex gap-6 md:gap-4"
               initial={false}
               animate={{
                 x: `${-100 * (currentIndex / slidesToShow)}%`
@@ -178,34 +171,19 @@ const ClientsFeedback: React.FC = () => {
                   }`}
                   variants={cardVariants}
                 >
-                  <div className=" p-6 md:p-8   transition-all duration-300 shadow-lg my-2  flex flex-col justify-between md:h-[350px] border-b-4 border-transparent hover:border-orange-500">
+                  <div className=" p-6 md:p-8    transition-all duration-300 shadow-lg my-2  flex flex-col justify-around  md:h-[280px] border-b-4 border-transparent hover:border-orange-500">
                    
                     {/* Content */}
-                    <h1 className="mb-1 text-gray-600 text-sm md:text-[16px]">
-                      {feedback.content1}
-                    </h1>
-                    <h1 className="mb-1 text-gray-600 text-sm md:text-[16px]">
-                      {feedback.content2}
-                    </h1>
-                    <h1 className="mb-1 text-gray-600 text-sm md:text-[16px]">
-                      {feedback.content3}
-                    </h1>
-                    <h1 className="mb-1 text-gray-600 text-sm md:text-[16x]">
-                      {feedback.content4}
-                    </h1><h1 className="mb-1 text-gray-600 text-sm md:text-[16px]">
-                      {feedback.content5}
-                    </h1><h1 className="mb-1 text-gray-600 text-sm md:text-[16px]">
-                      {feedback.content6}
+                    <h1 className=" text-gray-600 text-sm md:text-[16px]">
+                      {feedback.content}
+                    
+                    
                     </h1>
 
                     {/* Author */}
                     <div className="flex items-center">
-                      <motion.img
-                        src={feedback.authorImage}
-                        alt={feedback.author}
-                        className="w-12 h-12 md:w-14 md:h-14 rounded-full mr-4 border-2 border-gray-300"
-                        whileHover={{ scale: 1.1 }}
-                      />
+                    <FaUserCircle className="text-orange-500 w-12 h-12 md:w-14 md:h-14 mr-4"/>
+                     
                       <div>
                         <h3 className="font-bold text-[#1B2D3C] text-base md:text-lg">
                           {feedback.author}
