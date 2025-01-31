@@ -188,9 +188,7 @@ const ClientsFeedback: React.FC = () => {
                         <h3 className="font-bold text-[#1B2D3C] text-base md:text-lg">
                           {feedback.author}
                         </h3>
-                        <p className="text-gray-600 text-sm">
-                          {feedback.position}
-                        </p>
+                       
                       </div>
                     </div>
 
