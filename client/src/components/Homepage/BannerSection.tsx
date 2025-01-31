@@ -15,18 +15,18 @@ interface CarouselSlide {
 const carouselData: CarouselSlide[] = [
   {
     id: 1,
-    title: "You Dream,",
-    subtitle: "We'll Make It Real",
+    title: "Your vision,",
+    subtitle: "Our Expertise",
     description:
-      "All types of work - from designing and laying the Foundation finishing and commissioning. Tight deadlines, reasonable.",
+      "Bringing dreams to life from design to final touches, we deliver on time and within budget.",
     image: require("../../utils/HomePage/banner.png"),
   },
   {
     id: 2,
-    title: "You Dream,",
-    subtitle: "We'll Make It Real",
+    title: "Your vision,",
+    subtitle: "Our Expertise",
     description:
-      "All types of work - from designing and laying the Foundation finishing and commissioning. Tight deadlines, reasonable.",
+      "Bringing dreams to life from design to final touches, we deliver on time and within budget.",
     image: require("../../utils/HomePage/banner.png"),
   },
   // Add more slides as needed
@@ -100,7 +100,7 @@ const Banner: React.FC = () => {
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-4 h-4 bg-orange-500"></div>
                 <span className="text-orange-500 font-bold text-sm">
-                  GREAT EXPERIENCE IN BUILDING
+                BUILDING YOUR FUTURE, TODAY
                 </span>
               </div>
 
@@ -109,7 +109,7 @@ const Banner: React.FC = () => {
                 <br />
                 {carouselData[currentSlide].subtitle}
               </h1>
-              <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">
+              <p className="text-gray-600 mb-6 md:pr-36 md:mb-8 text-sm md:text-base">
                 {carouselData[currentSlide].description}
               </p>
               <Link to="/contact"onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
