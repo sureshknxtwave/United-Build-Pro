@@ -88,7 +88,7 @@ const RecentProjects: React.FC = () => {
 
   return (
     <motion.section 
-      className=" py-16 px-4 md:px-8 lg:px-0"
+      className=" py-12 px-4 md:px-8 lg:px-0"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
