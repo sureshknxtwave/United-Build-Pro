@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface Project {
   id: number;
@@ -10,23 +10,22 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    category:"Interior",
+    category: "Interior",
     title: 'Interior Designing of 3 BHK Home',
     image: require("../../utils/HomePage/pr1.png"),
   },
   {
     id: 2,
-    category:"Contruction",
+    category: "Contruction",
     title: 'Construction Of Office Space',
     image: require("../../utils/HomePage/pr2.png"),
   },
   {
     id: 3,
-    category:"Land Development",
+    category: "Land Development",
     title: 'Layout Construction',
     image: require("../../utils/HomePage/pr3.png"),
   },
-  
 ];
 
 const RecentProjects: React.FC = () => {
@@ -50,14 +49,14 @@ const RecentProjects: React.FC = () => {
   }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => 
-      prev + slidesToShow >= projects.length ? 0 : prev + 1
+    setCurrentIndex((prev) =>
+      prev + slidesToShow >= projects.length ? 0 : prev + slidesToShow
     );
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => 
-      prev === 0 ? projects.length - slidesToShow : prev - 1
+    setCurrentIndex((prev) =>
+      prev - slidesToShow < 0 ? projects.length - slidesToShow : prev - slidesToShow
     );
   };
 
@@ -68,9 +67,9 @@ const RecentProjects: React.FC = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const projectVariants = {
@@ -79,23 +78,23 @@ const RecentProjects: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         bounce: 0.4,
-        duration: 0.8
-      }
-    }
+        duration: 0.8,
+      },
+    },
   };
 
   return (
-    <motion.section 
-      className=" py-12 px-4 md:px-8 lg:px-0"
+    <motion.section
+      className="py-12 px-4 md:px-8 lg:px-0"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.h2 
+        <motion.h2
           className="text-5xl ff font-bold text-center mb-12 text-[#1B2D3C]"
           variants={projectVariants}
         >
@@ -124,66 +123,58 @@ const RecentProjects: React.FC = () => {
           </motion.button>
 
           {/* Projects Container */}
-          {/* Projects Container */}
-            <div className="overflow-hidden">
-              <motion.div
-                className="flex"
-                initial={false}
-                animate={{
-                  x: `${-100 * (currentIndex / slidesToShow)}%`,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 300,
-                  damping: 30,
-                }}
-                style={{
-                  width: `${(projects.length / slidesToShow) * 100}%`, // Dynamic container width
-                }}
-              >
-                {projects.map((project) => (
-  <motion.div
-    key={project.id}
-    className="flex-shrink-0 m-2"
-    style={{
-      width: `${96 / slidesToShow}%`,
-    }}
-    variants={projectVariants}
-  >
-    <motion.div
-      className="group  relative mb-16" // Added margin bottom to account for card overflow
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
-    >
-      {/* Project Background Image */}
-      <div 
-        className="h-[400px] md:h-[500px] relative" 
-        style={{
-          backgroundImage: `url(${project.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      />
-      
-      {/* White Card */}
-      <div className="absolute left-2 right-2 md:left-5 md:right-5 bottom-0 transform translate-y-[40%] md:translate-y-[30%]">
-  <div className="bg-white p-4 md:p-6 shadow-lg">
-    <p className="text-gray-600 ff text-xs md:text-sm mb-1">{project.category}</p>
-    <h3 className="text-[#1B2D3C] ff text-base md:text-xl font-bold mb-2">
-      {project.title}
-    </h3>
-  </div>
-</div>
-    </motion.div>
-  </motion.div>
-))}
-              </motion.div>
-            </div>
-
+          <div className="overflow-hidden">
+            <motion.div
+              className="flex"
+              initial={false}
+              animate={{
+                // Adjust x transition based on screen width
+                x: `${-103 * (currentIndex / slidesToShow)}%`
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 30,
+              }}
+              
+            >
+              {projects.map((project) => (
+                <motion.div
+                  key={project.id}
+                  className="flex-shrink-0 m-2"
+                  style={{
+                    width: `${window.innerWidth <= 768 ? 99 / slidesToShow : 96 / slidesToShow}%`,
+                  }}
+                  variants={projectVariants}
+                >
+                  <motion.div
+                    className="group relative mb-16"
+                    transition={{ duration: 0.3 }}
+                  >
+                    {/* Project Background Image */}
+                    <div
+                      className="h-[400px] md:h-[500px] relative"
+                      style={{
+                        backgroundImage: `url(${project.image})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                      }}
+                    />
+                    <div className="absolute w-auto   left-5 right-5 bottom-0 transform translate-y-[40%] md:translate-y-[30%]">
+                      <div className="bg-white p-4 md:p-6 shadow-lg">
+                        <p className="text-gray-600 ff text-xs md:text-sm mb-1">{project.category}</p>
+                        <h3 className="text-[#1B2D3C] ff text-base md:text-xl font-bold mb-2">
+                          {project.title}
+                        </h3>
+                      </div>
+                    </div>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
-
-       
       </div>
     </motion.section>
   );
