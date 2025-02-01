@@ -188,7 +188,7 @@ const AboutUs: React.FC = () => {
                   exceed them, offering a seamless integration of style and functionality while at the same 
                   time making life at ease spaces to form spaces system.
                 </p>
-                <Link className="flex justify-center md:justify-start" to='/about' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <Link to='/about' className="flex justify-center md:justify-start"  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                   <Button>Know More</Button>
                 </Link>
               </div>
