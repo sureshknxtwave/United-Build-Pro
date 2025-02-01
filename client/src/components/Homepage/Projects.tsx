@@ -130,7 +130,7 @@ const RecentProjects: React.FC = () => {
                 className="flex"
                 initial={false}
                 animate={{
-                  x: `${-107 * (currentIndex / slidesToShow)}%`,
+                  x: `${-96 * (currentIndex / slidesToShow)}%`,
                 }}
                 transition={{
                   type: "spring",
