@@ -105,7 +105,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 ">
       <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -125,21 +125,39 @@ const ContactForm: React.FC = () => {
                 {[
                   {
                     icon: (
+                      <motion.div
+                      className=" p-4 md:w-12 md:h-12 bg-orange-500 rounded-full flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <FaPhone className="w-6 h-6 text-white" />
+                      </motion.div>
                     ),
                     label: 'Phone Number:',
                     value: ' +91 9731125090, 9731125090',
                   },
                   {
                     icon: (
+                      <motion.div
+                      className=" p-4 md:w-12 md:h-12 bg-orange-500 rounded-full flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <FaEnvelope className="w-6 h-6 text-white" />
+                      </motion.div>
                     ),
                     label: 'Mail Address:',
                     value: 'unitedbuildpro@gmail.com',
                   },
                   {
                     icon: (
-                      <FaUser className="w-6 h-6 text-white" />
+                      <motion.div
+                      className=" p-4 md:w-12 md:h-12 bg-orange-500 rounded-full flex items-center justify-center"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaUser className=" w-6 h-6 md:w-8 md:h-8  text-white" />
+                      </motion.div>
                     ),
                     label: 'Office Address:',
                     value: ' #63/A, E Block, 2nd Stage, Dr Rajkumar Road, Subramanaya Nagar Bangalore-560010',
@@ -151,13 +169,9 @@ const ContactForm: React.FC = () => {
                     variants={itemVariants}
                     custom={index}
                   >
-                    <motion.div
-                      className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
+                   
                       {item.icon}
-                    </motion.div>
+                    
                     <div>
                       <div className="text-sm text-gray-900 font-bold">
                         {item.label}

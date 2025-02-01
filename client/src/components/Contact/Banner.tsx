@@ -50,7 +50,7 @@ const ContactUs: React.FC = () => {
     >
       {/* Hero Section with Background Image */}
       <motion.div 
-        className="relative h-[300px]"
+        className="relative h-[400px]"
         variants={fadeInUp}
       >
         {/* Background Image */}

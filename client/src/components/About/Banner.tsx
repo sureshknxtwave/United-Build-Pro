@@ -61,7 +61,7 @@ const AboutUs: React.FC = () => {
     >
       {/* Hero Section with Background Image */}
       <motion.div 
-        className="relative h-[300px] md:h-[400px] lg:h-[500px] mb-16"
+        className="relative h-[300px] md:h-[400px] mb-16"
         variants={fadeIn}
       >
         <div className="absolute inset-0">
