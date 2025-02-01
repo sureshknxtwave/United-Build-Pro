@@ -146,7 +146,7 @@ const RecentProjects: React.FC = () => {
     key={project.id}
     className="flex-shrink-0 m-2"
     style={{
-      width: `${96 / slidesToShow}%`,
+      width: `${100 / slidesToShow}%`,
     }}
     variants={projectVariants}
   >
