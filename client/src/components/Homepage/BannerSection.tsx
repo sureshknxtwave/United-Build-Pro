@@ -27,7 +27,7 @@ const carouselData: CarouselSlide[] = [
     subtitle: "Our Expertise",
     description:
       "Bringing dreams to life from design to final touches, we deliver on time and within budget.",
-    image: require("../../utils/HomePage/banner.png"),
+    image: require("../../utils/HomePage/banner2.png"),
   },
   // Add more slides as needed
 ];
@@ -35,19 +35,6 @@ const carouselData: CarouselSlide[] = [
 const Banner: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const handleJoinUsClick = () => {
-    setIsModalOpen(true); // Open modal when button is clicked
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false); // Close modal
-  };
-
-  const handleSubmit = (formData: { name: string; email: string; phone: string; subject: string; message: string }) => {
-    console.log('Form submitted with data:', formData);
-    // You can replace this with logic for sending data to an API
-    handleCloseModal(); // Close the modal after submission
-  };
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % carouselData.length);
@@ -59,8 +46,25 @@ const Banner: React.FC = () => {
     );
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
+  // Image scroll animation variants
+  const imageScrollVariants = {
+    initial: { y: 0 },
+    animate: { 
+      y: [0, -20, 0], // Slight up and down movement
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  // Text animation variants
+  const textVariants = {
+    initial: { opacity: 0, x: 100 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -100 },
+    transition: { duration: 0.5 }
   };
 
   return (
@@ -80,7 +84,7 @@ const Banner: React.FC = () => {
 
         <button
           onClick={nextSlide}
-          className="absolute  right-4 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-orange-500 text-white mx-10 shadow-lg flex items-center justify-center hover:bg-orange-600 transition duration-300"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-orange-500 text-white mx-10 shadow-lg flex items-center justify-center hover:bg-orange-600 transition duration-300"
           aria-label="Next slide"
         >
           <span>➜</span>
@@ -90,21 +94,21 @@ const Banner: React.FC = () => {
           <div className="flex flex-col md:flex-row md:mx-10 items-center justify-between py-12 md:py-20 space-y-10 md:space-y-0">
             {/* Left Content */}
             <motion.div
+              key={`text-${currentSlide}`}
+              initial={textVariants.initial}
+              animate={textVariants.animate}
+              exit={textVariants.exit}
+              transition={textVariants.transition}
               className="max-w-xl z-10 text-center md:text-left"
-              key={currentSlide} // Ensure animation is triggered on each slide change
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center space-x-2 mb-4">
+              <div className="flex items-center justify-center md:justify-start space-x-2 mb-4 text-center md:text-left">
                 <div className="w-4 h-4 bg-orange-500"></div>
                 <span className="text-orange-500 font-bold text-sm">
-                BUILDING YOUR FUTURE, TODAY
+                    BUILDING YOUR FUTURE, TODAY
                 </span>
-              </div>
+            </div>
 
-              <h1 className=" ff text-3xl md:text-6xl font-bold text-[#1B2D3C] mb-4 md:mb-6 leading-tight">
+              <h1 className="ff text-3xl md:text-6xl font-bold text-[#1B2D3C] mb-4 md:mb-6 leading-tight">
                 {carouselData[currentSlide].title}
                 <br />
                 {carouselData[currentSlide].subtitle}
@@ -112,32 +116,35 @@ const Banner: React.FC = () => {
               <p className="text-gray-600 mb-6 md:pr-36 md:mb-8 text-sm md:text-base">
                 {carouselData[currentSlide].description}
               </p>
-              <Link to="/contact"onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <button   className="bg-[#1B2D3C] text-white px-6 ff font-semibold py-3 md:px-8 md:py-4  hover:bg-[#2a4459] transition duration-300">
-                Contact us
-              </button>
+              <Link 
+                to="/contact" 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                <button className="bg-[#1B2D3C] text-white px-6 ff font-semibold py-3 md:px-8 md:py-4 hover:bg-[#2a4459] transition duration-300">
+                  Contact us
+                </button>
               </Link>
-              </motion.div> 
+            </motion.div>
 
-            {/* Right Image */}
+            {/* Right Image with Scroll Effect */}
             <motion.div
-              className="w-full md:w-auto md:block flex justify-center"
-              initial={{ opacity: 0, x: -100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
-              transition={{ duration: 0.5 }}
+              key={`image-${currentSlide}`}
+              variants={imageScrollVariants}
+              initial="initial"
+             
+              className="w-full  md:w-auto md:block flex justify-center"
             >
-              <img
+              <motion.img
                 src={carouselData[currentSlide].image}
                 alt="Construction Worker"
-                className="w-full md:max-w-xl object-cover"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-full  md:max-w-xl object-cover"
               />
             </motion.div>
           </div>
         </div>
-
-        {/* Indicators */}
-        
       </div>
     </div>
   );

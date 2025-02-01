@@ -151,7 +151,7 @@ const RecentProjects: React.FC = () => {
     variants={projectVariants}
   >
     <motion.div
-      className="group relative mb-16" // Added margin bottom to account for card overflow
+      className="group  relative mb-16" // Added margin bottom to account for card overflow
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
     >
@@ -167,18 +167,14 @@ const RecentProjects: React.FC = () => {
       />
       
       {/* White Card */}
-      <div className="absolute left-5 right-5 bottom-0 transform translate-y-1/2">
-        <div className="bg-white p-6 shadow-lg ">
-          <p className="text-gray-600 ff text-sm mb-1">{project.category}</p>
-          <h3 className="text-[#1B2D3C] ff text-xl font-bold mb-2">
-            {project.title}
-          </h3>
-          {/* <div className="flex items-center text-orange-500">
-            <span className="text-sm">View Projects</span>
-            <span className="ml-2">→</span>
-          </div> */}
-        </div>
-      </div>
+      <div className="absolute left-2 right-2 md:left-5 md:right-5 bottom-0 transform translate-y-[40%] md:translate-y-[30%]">
+  <div className="bg-white p-4 md:p-6 shadow-lg">
+    <p className="text-gray-600 ff text-xs md:text-sm mb-1">{project.category}</p>
+    <h3 className="text-[#1B2D3C] ff text-base md:text-xl font-bold mb-2">
+      {project.title}
+    </h3>
+  </div>
+</div>
     </motion.div>
   </motion.div>
 ))}

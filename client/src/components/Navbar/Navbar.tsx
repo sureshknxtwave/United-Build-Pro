@@ -201,7 +201,7 @@ const Navbar: React.FC = () => {
                           onClick={() => setIsOpen(false)} // Close menu on navigation
                           className={`${
                             isActive(subItem.path) ? 'text-orange-500' : 'text-gray-700'
-                          } block px-3 py-2 text-sm hover:bg-gray-100 transition duration-150 ease-in-out`}
+                          } block px-3 py-2 text-sm hover:bg-orange-500 hovver:text-white transition duration-150 ease-in-out`}
                         >
                           {subItem.title}
                         </Link>

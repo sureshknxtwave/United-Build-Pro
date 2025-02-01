@@ -94,8 +94,11 @@ const AboutUs: React.FC = () => {
       </motion.div>
 
       {/* Company Information Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <h2 className="text-3xl text-center ff md:text-4xl lg:text-5xl font-bold text-[#1B2D3C] block md:hidden">
+            United Buildpro Pvt Ltd
+          </h2>
           {/* Left Side - Image */}
           <motion.div 
             className="relative"
@@ -118,9 +121,10 @@ const AboutUs: React.FC = () => {
             variants={slideFromRight}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl ff md:text-4xl lg:text-5xl font-bold text-[#1B2D3C]">
-              United Buildpro Pvt Ltd
-            </h2>
+           <h2 className="text-3xl ff md:text-4xl lg:text-5xl font-bold text-[#1B2D3C] hidden md:block">
+            United Buildpro Pvt Ltd
+          </h2>
+
 
             {/* Vision */}
             <motion.div 
