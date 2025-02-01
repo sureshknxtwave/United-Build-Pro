@@ -118,88 +118,78 @@ const AboutUs: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* On mobile, show heading first */}
             <motion.div 
-              className="lg:hidden mb-4 md:m-8" 
-              variants={isMobile ? mobileVariants : desktopVariants}
-              initial="initial"
-              animate="animate"
-              transition={isMobile ? mobileVariants.transition : desktopVariants.transition}
-            >
-              <h2 
-                className="text-4xl ff md:text-4xl lg:text-5xl font-bold text-center"
-                style={{ color: colors.primary }}
-              >
-                About us
-              </h2>
-            </motion.div>
+  className="order-1 lg:order-2 text-center lg:text-left mb-6 lg:mb-0"
+  variants={isMobile ? mobileVariants : desktopVariants}
+  initial="initial"
+  animate="animate"
+  transition={isMobile ? mobileVariants.transition : desktopVariants.transition}
+>
+  <h2 
+    className="text-4xl ff md:text-4xl lg:text-5xl font-bold"
+    style={{ color: colors.primary }}
+  >
+    About us
+  </h2>
+</motion.div>
 
-            {/* Image Container with Decorative Elements */}
-            <motion.div 
-              className="relative order-2 lg:order-1"
-              variants={isMobile ? mobileVariants : desktopVariants}
-              initial="initial"
-              animate="animate"
-              transition={isMobile ? mobileVariants.transition : desktopVariants.transition}
-            >
-              {/* Main Image */}
-              <div className="relative z-10 rounded-lg overflow-hidden">
-                <img
-                  src={require("../../utils/HomePage/2.png")}
-                  alt="Construction Professional"
-                  className={`w-full h-[550px] object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                  onLoad={() => setImageLoaded(true)}
-                />
-                {/* Loading placeholder */}
-                {!imageLoaded && (
-                  <div 
-                    className="absolute inset-0 bg-gray-200 animate-pulse"
-                    style={{ backgroundColor: colors.gray.border }}
-                  ></div>
-                )}
-              </div>
-              
-              {/* Decorative Frame */}
-              <div 
-                className="absolute top-8 -left-4 w-full h-full rounded-lg -z-10"
-                style={{ border: `2px solid ${colors.orange}` }}
-              ></div>
-            </motion.div>
+{/* Image Container */}
+<motion.div 
+  className="relative order-2 lg:order-1"
+  variants={isMobile ? mobileVariants : desktopVariants}
+  initial="initial"
+  animate="animate"
+  transition={isMobile ? mobileVariants.transition : desktopVariants.transition}
+>
+  <div className="relative z-10 rounded-lg overflow-hidden">
+    <img
+      src={require("../../utils/HomePage/2.png")}
+      alt="Construction Professional"
+      className={`w-full h-[550px] object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+      onLoad={() => setImageLoaded(true)}
+    />
+    {!imageLoaded && (
+      <div 
+        className="absolute inset-0 bg-gray-200 animate-pulse"
+        style={{ backgroundColor: colors.gray.border }}
+      ></div>
+    )}
+  </div>
+  
+  <div 
+    className="absolute top-8 -left-4 w-full h-full rounded-lg -z-10"
+    style={{ border: `2px solid ${colors.orange}` }}
+  ></div>
+</motion.div>
 
-            {/* Content Container */}
-            <motion.div 
-              className="lg:pl-12 order-1 lg:order-2"
-              variants={isMobile ? mobileVariants : desktopVariants}
-              initial="initial"
-              animate="animate"
-              transition={isMobile ? mobileVariants.transition : desktopVariants.transition}
-            >
-              {/* Hidden on mobile, shown on larger screens */}
-              <h2 
-                className="hidden lg:block text-3xl ff md:text-4xl lg:text-5xl font-bold mb-6"
-                style={{ color: colors.primary }}
-              >
-                About us
-              </h2>
-              
-              <div className="space-y-6" style={{ color: colors.gray.text }}>
-                <p className="leading-relaxed text-base md:text-md">
-                  Everyone has a vision of their dream home or workspace — a space filled with 
-                  special features and lasting impressions. At United Builders PVT Ltd, we bring 
-                  these visions to life. Our team of highly skilled professionals and designers 
-                  knows the right questions to ask to uncover your desires and create a space that's 
-                  uniquely yours.
-                </p>
-                
-                <p className="leading-relaxed text-base md:text-md">
-                  Every project we undertake is a harmonious blend of our client's vision and our 
-                  design expertise. We focus on creating spaces that not only meet expectations but 
-                  exceed them, offering a seamless integration of style and functionality while at the same 
-                  time making life at ease spaces to form spaces system.
-                </p>
-                <Link to='/about' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                  <Button>Know More</Button>
-                </Link>
-              </div>
-            </motion.div>
+{/* Content Container */}
+<motion.div 
+  className="order-3 lg:order-2 text-center lg:text-left"
+  variants={isMobile ? mobileVariants : desktopVariants}
+  initial="initial"
+  animate="animate"
+  transition={isMobile ? mobileVariants.transition : desktopVariants.transition}
+>
+  <div className="space-y-6" style={{ color: colors.gray.text }}>
+    <p className="leading-relaxed text-base md:text-md">
+      Everyone has a vision of their dream home or workspace — a space filled with 
+      special features and lasting impressions. At United Builders PVT Ltd, we bring 
+      these visions to life. Our team of highly skilled professionals and designers 
+      knows the right questions to ask to uncover your desires and create a space that's 
+      uniquely yours.
+    </p>
+    
+    <p className="leading-relaxed text-base md:text-md">
+      Every project we undertake is a harmonious blend of our client's vision and our 
+      design expertise. We focus on creating spaces that not only meet expectations but 
+      exceed them, offering a seamless integration of style and functionality while at the same 
+      time making life at ease spaces to form spaces system.
+    </p>
+    <Link to='/about' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <Button>Know More</Button>
+    </Link>
+  </div>
+</motion.div>
+
           </div>
         </div>
       </section>

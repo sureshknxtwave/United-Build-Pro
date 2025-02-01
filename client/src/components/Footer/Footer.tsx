@@ -60,11 +60,8 @@ const Footer: React.FC = () => {
 
   return (
     <footer id="footer-section">
-  <div
-    className={`bg-[#1B2D3C] text-white p-[100px] mx-auto transition-all duration-1000 ${
-      isFooterInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-    }`}
-  >
+  <div className={`bg-[#1B2D3C] text-white p-6 md:p-[50px] lg:p-[100px] mx-auto transition-all duration-1000 ${isFooterInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+
     <div className="grid grid-cols-1 md:grid-cols-3">
       {/* Logo and Social Section */}
       <div
