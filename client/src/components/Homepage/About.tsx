@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
+import Modal from '../Modal/Modal.tsx'
 import { Link } from 'react-router-dom'
 
 const AboutUs: React.FC = () => {
-
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
 
   useEffect(() => {
@@ -16,8 +16,18 @@ const AboutUs: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  
-  
+  const handleJoinUsClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSubmit = (formData: { name: string; email: string; phone: string; subject: string; message: string }) => {
+    console.log('Form submitted with data:', formData);
+    handleCloseModal();
+  };
 
   // Colors object
   const colors = {
@@ -56,7 +66,7 @@ const AboutUs: React.FC = () => {
 
     return (
       <button 
-        
+        onClick={handleJoinUsClick}
         className="px-8 py-3 ff font-semibold transition-all duration-300 mt-8"
         style={{ 
           backgroundColor: isHovered ? '#2a4459' : colors.primary,
@@ -96,7 +106,13 @@ const AboutUs: React.FC = () => {
   return (
     <>
       {/* Modal Component */}
-      
+      {isModalOpen && (
+        <Modal 
+          onClose={handleCloseModal} 
+          onSubmit={handleSubmit}
+        />
+      )}
+
       <section className="py-16 px-4 md:px-8 lg:px-0" style={{ backgroundColor: colors.white }}>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

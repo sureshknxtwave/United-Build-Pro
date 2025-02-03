@@ -23,10 +23,10 @@ const carouselData: CarouselSlide[] = [
   },
   {
     id: 2,
-    title: "Your vision,",
-    subtitle: "Our Expertise",
+    title: "You Dream,",
+    subtitle: "We’ll Make It Real",
     description:
-      "Bringing dreams to life from design to final touches, we deliver on time and within budget.",
+      "All types of work – from designing and laying the Foundation, finishing and commissioning. Tight deadlines, reasonable.",
     image: require("../../utils/HomePage/banner2.png"),
   },
   // Add more slides as needed
